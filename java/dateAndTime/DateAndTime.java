@@ -14,6 +14,7 @@
  */
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
  public class DateAndTime {
@@ -24,34 +25,33 @@ import java.util.Scanner;
          int day = scan.nextInt();
          int year = scan.nextInt();
 
-         Calendar dateToConvert = Calendar();
-         dateToConvert.set(year, month, day);
-
-         // Covert date to day of week
-         int numDay = dateToConvert.getFirstDayOfWeek();
-         String stringDay = getDay(numDay);
-         System.out.println(numDay);
-         System.out.println(stringDay);
+         getDay(year, month, day);
+         
      }
 
-     public static String getDay(int n) {
-         int day = n;
+     public static String getDay(int year, int month, int day) {
+        Calendar dateToConvert = Calendar.getInstance();
+        dateToConvert.set(Calendar.YEAR, year);
+        dateToConvert.set(Calendar.MONTH, month - 1);
+        dateToConvert.set(Calendar.DAY_OF_MONTH, day);
+
+        int dayOfWeek = dateToConvert.get(Calendar.DAY_OF_WEEK);
+
          String returnDay = "";
-         switch(n) {
-             case 0: returnDay = "SUNDAY";
+         switch(dayOfWeek) {
+             case 1: returnDay = "MONDAY"; System.out.println("MONDAY");
              break;
-             case 1: returnDay = "MONDAY";
+             case 2: returnDay = "TUESDAY"; System.out.println("TUESDAY");
              break;
-             case 2: returnDay = "TUESDAY";
+             case 3: returnDay = "WEDNESDAY"; System.out.println("WEDNESDAY");
              break;
-             case 3: returnDay = "WEDNESDAY";
+             case 4: returnDay = "THURSDAY"; System.out.println("THURSDAY");
              break;
-             case 4: returnDay = "THURSDAY";
+             case 5: returnDay = "FRIDAY"; System.out.println("FRIDAY");
              break;
-             case 5: returnDay = "FRIDAY";
+             case 6: returnDay = "SATURDAY"; System.out.println("SATURDAY");
              break;
-             case 6: returnDay = "SATURDAY";
-             break;
+             case 7: returnDay = "SUNDAY"; System.out.println("SUNDAY");
          }
          return returnDay;
      }
