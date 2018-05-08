@@ -11,6 +11,7 @@
         while(in.hasNext()){
             String IP = in.next();
             System.out.println(IP.matches(new MyRegex().pattern));
+            if (IP == -1) {System.exit(0);}
         }
         in.close();
      }
