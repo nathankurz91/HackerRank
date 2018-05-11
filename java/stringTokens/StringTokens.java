@@ -15,7 +15,7 @@ public class StringTokens {
         // Trim and split the string using the delimeters
         String[] sArray = s.trim().split("[ !,?\\._'@]+", 0);
         
-        if (sArray[0] == "") {
+        if (sArray.length == 1 && sArray[0].equals("")) {
             System.out.println(0);
         } else {
             System.out.println(sArray.length);
