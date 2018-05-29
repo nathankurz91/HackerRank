@@ -6,7 +6,7 @@
 /**
  * Solution to the HackerRank problem "Java Int to String"
  * 
- * Convert an integer n to a string.
+ * Convert an integer n to a string. s
  */
 
 import java.util.Scanner;
